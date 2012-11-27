@@ -1,0 +1,54 @@
+digraph g {
+graph [
+rankdir = "LR",
+concentrate = true,
+ratio = auto
+];
+node [
+fontsize = "10",
+shape = record
+];
+edge [
+];
+
+"musicdb.artist" [shape = plaintext, label = < <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0"> <TR ><TD PORT="ltcol0"> </TD> <TD bgcolor="grey90" border="1" COLSPAN="4"> \N </TD> <TD PORT="rtcol0"></TD></TR>  <TR><TD PORT="ltcol1" ></TD><TD align="left" > id </TD><TD align="left" > serial </TD><TD align="left" > PK </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol1"> </TD></TR> <TR><TD PORT="ltcol2" ></TD><TD align="left" > name </TD><TD align="left" > text </TD><TD align="left" >  </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol2"> </TD></TR> </TABLE>> ];
+
+"musicdb.artist__person_alias__role" [shape = plaintext, label = < <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0"> <TR ><TD PORT="ltcol0"> </TD> <TD bgcolor="grey90" border="1" COLSPAN="4"> \N </TD> <TD PORT="rtcol0"></TD></TR>  <TR><TD PORT="ltcol1" ></TD><TD align="left" > person_alias_id </TD><TD align="left" > integer </TD><TD align="left" > PK </TD><TD align="left" > FK </TD><TD align="left" PORT="rtcol1"> </TD></TR> <TR><TD PORT="ltcol2" ></TD><TD align="left" > artist_id </TD><TD align="left" > integer </TD><TD align="left" > PK </TD><TD align="left" > FK </TD><TD align="left" PORT="rtcol2"> </TD></TR> <TR><TD PORT="ltcol3" ></TD><TD align="left" > role_id </TD><TD align="left" > integer </TD><TD align="left" > PK </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol3"> </TD></TR> </TABLE>> ];
+
+"musicdb.artist__record" [shape = plaintext, label = < <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0"> <TR ><TD PORT="ltcol0"> </TD> <TD bgcolor="grey90" border="1" COLSPAN="4"> \N </TD> <TD PORT="rtcol0"></TD></TR>  <TR><TD PORT="ltcol1" ></TD><TD align="left" > record_id </TD><TD align="left" > integer </TD><TD align="left" > PK </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol1"> </TD></TR> <TR><TD PORT="ltcol2" ></TD><TD align="left" > artist_id </TD><TD align="left" > integer </TD><TD align="left" > PK </TD><TD align="left" > FK </TD><TD align="left" PORT="rtcol2"> </TD></TR> </TABLE>> ];
+
+"musicdb.person_alias" [shape = plaintext, label = < <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0"> <TR ><TD PORT="ltcol0"> </TD> <TD bgcolor="grey90" border="1" COLSPAN="4"> \N </TD> <TD PORT="rtcol0"></TD></TR>  <TR><TD PORT="ltcol1" ></TD><TD align="left" > id </TD><TD align="left" > serial </TD><TD align="left" > PK </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol1"> </TD></TR> <TR><TD PORT="ltcol2" ></TD><TD align="left" > name </TD><TD align="left" > text </TD><TD align="left" >  </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol2"> </TD></TR> </TABLE>> ];
+
+"musicdb.person_alias__record__role" [shape = plaintext, label = < <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0"> <TR ><TD PORT="ltcol0"> </TD> <TD bgcolor="grey90" border="1" COLSPAN="4"> \N </TD> <TD PORT="rtcol0"></TD></TR>  <TR><TD PORT="ltcol1" ></TD><TD align="left" > person_alias_id </TD><TD align="left" > integer </TD><TD align="left" > PK </TD><TD align="left" > FK </TD><TD align="left" PORT="rtcol1"> </TD></TR> <TR><TD PORT="ltcol2" ></TD><TD align="left" > record_id </TD><TD align="left" > integer </TD><TD align="left" > PK </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol2"> </TD></TR> <TR><TD PORT="ltcol3" ></TD><TD align="left" > role_id </TD><TD align="left" > integer </TD><TD align="left" > PK </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol3"> </TD></TR> </TABLE>> ];
+
+"musicdb.person_alias__role__song" [shape = plaintext, label = < <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0"> <TR ><TD PORT="ltcol0"> </TD> <TD bgcolor="grey90" border="1" COLSPAN="4"> \N </TD> <TD PORT="rtcol0"></TD></TR>  <TR><TD PORT="ltcol1" ></TD><TD align="left" > person_alias_id </TD><TD align="left" > integer </TD><TD align="left" > PK </TD><TD align="left" > FK </TD><TD align="left" PORT="rtcol1"> </TD></TR> <TR><TD PORT="ltcol2" ></TD><TD align="left" > song_id </TD><TD align="left" > integer </TD><TD align="left" > PK </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol2"> </TD></TR> <TR><TD PORT="ltcol3" ></TD><TD align="left" > role_id </TD><TD align="left" > integer </TD><TD align="left" > PK </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol3"> </TD></TR> </TABLE>> ];
+
+"musicdb.record" [shape = plaintext, label = < <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0"> <TR ><TD PORT="ltcol0"> </TD> <TD bgcolor="grey90" border="1" COLSPAN="4"> \N </TD> <TD PORT="rtcol0"></TD></TR>  <TR><TD PORT="ltcol1" ></TD><TD align="left" > id </TD><TD align="left" > serial </TD><TD align="left" > PK </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol1"> </TD></TR> <TR><TD PORT="ltcol2" ></TD><TD align="left" > name </TD><TD align="left" > text </TD><TD align="left" >  </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol2"> </TD></TR> <TR><TD PORT="ltcol3" ></TD><TD align="left" > edition_id </TD><TD align="left" > integer </TD><TD align="left" >  </TD><TD align="left" > FK </TD><TD align="left" PORT="rtcol3"> </TD></TR> </TABLE>> ];
+
+"musicdb.role" [shape = plaintext, label = < <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0"> <TR ><TD PORT="ltcol0"> </TD> <TD bgcolor="grey90" border="1" COLSPAN="4"> \N </TD> <TD PORT="rtcol0"></TD></TR>  <TR><TD PORT="ltcol1" ></TD><TD align="left" > id </TD><TD align="left" > serial </TD><TD align="left" > PK </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol1"> </TD></TR> <TR><TD PORT="ltcol2" ></TD><TD align="left" > name </TD><TD align="left" > text </TD><TD align="left" >  </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol2"> </TD></TR> </TABLE>> ];
+
+"musicdb.song" [shape = plaintext, label = < <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0"> <TR ><TD PORT="ltcol0"> </TD> <TD bgcolor="grey90" border="1" COLSPAN="4"> \N </TD> <TD PORT="rtcol0"></TD></TR>  <TR><TD PORT="ltcol1" ></TD><TD align="left" > id </TD><TD align="left" > serial </TD><TD align="left" > PK </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol1"> </TD></TR> <TR><TD PORT="ltcol2" ></TD><TD align="left" > name </TD><TD align="left" > text </TD><TD align="left" >  </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol2"> </TD></TR> <TR><TD PORT="ltcol3" ></TD><TD align="left" > record_id </TD><TD align="left" > integer </TD><TD align="left" >  </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol3"> </TD></TR> <TR><TD PORT="ltcol4" ></TD><TD align="left" > variation_id </TD><TD align="left" > integer </TD><TD align="left" >  </TD><TD align="left" > FK </TD><TD align="left" PORT="rtcol4"> </TD></TR> </TABLE>> ];
+
+"musicdb.song__volume" [shape = plaintext, label = < <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0"> <TR ><TD PORT="ltcol0"> </TD> <TD bgcolor="grey90" border="1" COLSPAN="4"> \N </TD> <TD PORT="rtcol0"></TD></TR>  <TR><TD PORT="ltcol1" ></TD><TD align="left" > song_id </TD><TD align="left" > integer </TD><TD align="left" > PK </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol1"> </TD></TR> <TR><TD PORT="ltcol2" ></TD><TD align="left" > volume_id </TD><TD align="left" > integer </TD><TD align="left" > PK </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol2"> </TD></TR> <TR><TD PORT="ltcol3" ></TD><TD align="left" > tracknumber </TD><TD align="left" > integer </TD><TD align="left" >  </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol3"> </TD></TR> </TABLE>> ];
+
+"musicdb.volume" [shape = plaintext, label = < <TABLE BORDER="1" CELLBORDER="0" CELLSPACING="0"> <TR ><TD PORT="ltcol0"> </TD> <TD bgcolor="grey90" border="1" COLSPAN="4"> \N </TD> <TD PORT="rtcol0"></TD></TR>  <TR><TD PORT="ltcol1" ></TD><TD align="left" > id </TD><TD align="left" > serial </TD><TD align="left" > PK </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol1"> </TD></TR> <TR><TD PORT="ltcol2" ></TD><TD align="left" > number </TD><TD align="left" > integer </TD><TD align="left" >  </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol2"> </TD></TR> <TR><TD PORT="ltcol3" ></TD><TD align="left" > name </TD><TD align="left" > text </TD><TD align="left" >  </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol3"> </TD></TR> <TR><TD PORT="ltcol4" ></TD><TD align="left" > record_id </TD><TD align="left" > integer </TD><TD align="left" >  </TD><TD align="left" >  </TD><TD align="left" PORT="rtcol4"> </TD></TR> </TABLE>> ];
+
+
+
+"musicdb.artist__person_alias__role":rtcol1 -> "musicdb.person_alias":ltcol1 [label="artist__person_alias__role_person_alias_id_fkey"];
+"musicdb.artist__person_alias__role":rtcol2 -> "musicdb.artist":ltcol1 [label="artist__person_alias__role_artist_id_fkey"];
+"musicdb.artist__person_alias__role":rtcol3 -> "musicdb.role":ltcol1 [label="artist__person_alias__role_role_id_fkey"];
+"musicdb.artist__record":rtcol1 -> "musicdb.record":ltcol1 [label="artist__record_record_id_fkey"];
+"musicdb.artist__record":rtcol2 -> "musicdb.artist":ltcol1 [label="artist__record_artist_id_fkey"];
+"musicdb.person_alias__record__role":rtcol1 -> "musicdb.person_alias":ltcol1 [label="person_alias__record__role_person_alias_id_fkey"];
+"musicdb.person_alias__record__role":rtcol2 -> "musicdb.record":ltcol1 [label="person_alias__record__role_record_id_fkey"];
+"musicdb.person_alias__record__role":rtcol3 -> "musicdb.role":ltcol1 [label="person_alias__record__role_role_id_fkey"];
+"musicdb.person_alias__role__song":rtcol1 -> "musicdb.person_alias":ltcol1 [label="person_alias__role__song_person_alias_id_fkey"];
+"musicdb.person_alias__role__song":rtcol2 -> "musicdb.song":ltcol1 [label="person_alias__role__song_song_id_fkey"];
+"musicdb.person_alias__role__song":rtcol3 -> "musicdb.role":ltcol1 [label="person_alias__role__song_role_id_fkey"];
+"musicdb.record":rtcol3 -> "musicdb.record":ltcol1 [label="record_edition_id_fkey"];
+"musicdb.song":rtcol4 -> "musicdb.song":ltcol1 [label="song_variation_id_fkey"];
+"musicdb.song__volume":rtcol1 -> "musicdb.song":ltcol1 [label="song__volume_song_id_fkey"];
+"musicdb.song__volume":rtcol2 -> "musicdb.volume":ltcol1 [label="song__volume_volume_id_fkey"];
+"musicdb.volume":rtcol4 -> "musicdb.record":ltcol1 [label="volume_record_id_fkey"];
+}

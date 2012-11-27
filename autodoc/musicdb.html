@@ -1,0 +1,1582 @@
+<!-- $Header: /cvsroot/autodoc/autodoc/html.tmpl,v 1.4 2006/05/16 19:01:27 rbt Exp $ -->
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+   "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+  <head>
+    <title>Index for musicdb</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <style type="text/css">
+	BODY {
+		color:	#000000;
+		background-color: #FFFFFF;
+		font-family: Helvetica, sans-serif;
+	}
+
+	P {
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+
+	P.w3ref {
+		font-size: 8pt;
+		font-style: italic;
+		text-align: right;
+	}
+
+	P.detail {
+		font-size: 10pt;
+	}
+
+	.error {
+		color: #FFFFFF;
+		background-color: #FF0000;
+	}
+
+	H1, H2, H3, H4, H5, H6 {
+	}
+
+	OL {
+		list-style-type: upper-alpha;
+	}
+
+	UL.topic {
+		list-style-type: upper-alpha;
+	}
+
+	LI.topic {
+		font-weight : bold;
+	}
+
+	HR {
+		color: #00FF00;
+		background-color: #808080;
+	}
+
+	TABLE {
+		border-width: medium;
+		padding: 3px;
+		background-color: #000000;
+		width: 90%;
+	}
+
+	CAPTION {
+		text-transform: capitalize;
+		font-weight : bold;
+		font-size: 14pt;
+	}
+
+	TH {
+		color: #FFFFFF;
+		background-color: #000000;
+		text-align: left;
+	}
+
+	TR {
+		color: #000000;
+		background-color: #000000;
+		vertical-align: top;
+	}
+
+	TR.tr0 {
+		background-color: #F0F0F0;
+	}
+
+	TR.tr1 {
+		background-color: #D8D8D8;
+	}
+
+	TD {
+		font-size: 12pt;
+	}
+
+	TD.col0 {
+		font-weight : bold;
+		width: 20%;
+	}
+
+	TD.col1 {
+		font-style: italic;
+		width: 15%;
+	}
+
+	TD.col2 {
+		font-size: 12px;
+	}
+    </style>
+    <link rel="stylesheet" type="text/css" media="all" href="all.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="screen.css">
+    <link rel="stylesheet" type="text/css" media="print" href="print.css">
+    <meta HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+  </head>
+  <body>
+
+    <!-- Primary Index -->
+	<p><br><br>Dumped on 2010-05-02</p>
+<h1><a name="index">Index of database - musicdb</a></h1>
+<ul>
+    
+    <li><a name="musicdb.schema">musicdb</a></li><ul>
+    	<li><a href="#musicdb.table.artist">artist</a></li><li><a href="#musicdb.table.artist-person-alias-role">artist__person_alias__role</a></li><li><a href="#musicdb.table.artist-record">artist__record</a></li><li><a href="#musicdb.table.person-alias">person_alias</a></li><li><a href="#musicdb.table.person-alias-record-role">person_alias__record__role</a></li><li><a href="#musicdb.table.person-alias-role-song">person_alias__role__song</a></li><li><a href="#musicdb.table.record">record</a></li><li><a href="#musicdb.table.role">role</a></li><li><a href="#musicdb.table.song">song</a></li><li><a href="#musicdb.table.song-volume">song__volume</a></li><li><a href="#musicdb.table.volume">volume</a></li>
+  	
+    </ul>
+    
+    <li><a name="public.schema">public</a></li><ul>
+    	
+  	
+    </ul>
+    
+</ul>
+
+    <!-- Schema Creation -->
+    <!-- musicdbmusicdb -->
+
+		
+		<hr>
+		<h1>Schema musicdb</h1>
+		
+
+		
+		
+        <hr>
+		<h2>Table:
+			
+			<a href="#musicdb.schema">musicdb</a>.<a name="musicdb.table.artist">artist</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>musicdb.artist Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>name</td>
+            	<td>text</td>
+                <td><i>
+				
+					
+
+					
+                       UNIQUE
+                    
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#musicdb.table.artist-person-alias-role">musicdb.artist__person_alias__role</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#musicdb.table.artist-record">musicdb.artist__record</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#musicdb.schema">Schema musicdb</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			
+			<a href="#musicdb.schema">musicdb</a>.<a name="musicdb.table.artist-person-alias-role">artist__person_alias__role</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>musicdb.artist__person_alias__role Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#musicdb.table.person-alias">musicdb.person_alias.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>person_alias_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#musicdb.table.artist">musicdb.artist.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>artist_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                  
+                  <a href="#musicdb.table.role">musicdb.role.id</a>
+                  
+                
+                </td>
+            	<td>role_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#musicdb.schema">Schema musicdb</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			
+			<a href="#musicdb.schema">musicdb</a>.<a name="musicdb.table.artist-record">artist__record</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>musicdb.artist__record Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                  
+                  <a href="#musicdb.table.record">musicdb.record.id</a>
+                  
+                
+                </td>
+            	<td>record_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#musicdb.table.artist">musicdb.artist.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>artist_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#musicdb.schema">Schema musicdb</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			
+			<a href="#musicdb.schema">musicdb</a>.<a name="musicdb.table.person-alias">person_alias</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>musicdb.person_alias Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>name</td>
+            	<td>text</td>
+                <td><i>
+				
+					
+
+					
+                       UNIQUE
+                    
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#musicdb.table.artist-person-alias-role">musicdb.artist__person_alias__role</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#musicdb.table.person-alias-record-role">musicdb.person_alias__record__role</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#musicdb.table.person-alias-role-song">musicdb.person_alias__role__song</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#musicdb.schema">Schema musicdb</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			
+			<a href="#musicdb.schema">musicdb</a>.<a name="musicdb.table.person-alias-record-role">person_alias__record__role</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>musicdb.person_alias__record__role Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#musicdb.table.person-alias">musicdb.person_alias.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>person_alias_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                  
+                  <a href="#musicdb.table.record">musicdb.record.id</a>
+                  
+                
+                </td>
+            	<td>record_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                  
+                  <a href="#musicdb.table.role">musicdb.role.id</a>
+                  
+                
+                </td>
+            	<td>role_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#musicdb.schema">Schema musicdb</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			
+			<a href="#musicdb.schema">musicdb</a>.<a name="musicdb.table.person-alias-role-song">person_alias__role__song</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>musicdb.person_alias__role__song Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#musicdb.table.person-alias">musicdb.person_alias.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>person_alias_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                  
+                  <a href="#musicdb.table.song">musicdb.song.id</a>
+                  
+                
+                </td>
+            	<td>song_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                  
+                  <a href="#musicdb.table.role">musicdb.role.id</a>
+                  
+                
+                </td>
+            	<td>role_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#musicdb.schema">Schema musicdb</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			
+			<a href="#musicdb.schema">musicdb</a>.<a name="musicdb.table.record">record</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>musicdb.record Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>name</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                  <a href="#musicdb.table.record">musicdb.record.id</a>
+                  
+                
+                </td>
+            	<td>edition_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				<br><br>This id points to another tuple
+of record. It allows to connect different versions of a record (&quot;Deluxe Version&quot;)
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#musicdb.table.artist-record">musicdb.artist__record</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#musicdb.table.person-alias-record-role">musicdb.person_alias__record__role</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#musicdb.table.record">musicdb.record</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#musicdb.table.volume">musicdb.volume</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#musicdb.schema">Schema musicdb</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			
+			<a href="#musicdb.schema">musicdb</a>.<a name="musicdb.table.role">role</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>musicdb.role Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>name</td>
+            	<td>text</td>
+                <td><i>
+				
+					
+
+					
+                       UNIQUE
+                    
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#musicdb.table.artist-person-alias-role">musicdb.artist__person_alias__role</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#musicdb.table.person-alias-record-role">musicdb.person_alias__record__role</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#musicdb.table.person-alias-role-song">musicdb.person_alias__role__song</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#musicdb.schema">Schema musicdb</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			
+			<a href="#musicdb.schema">musicdb</a>.<a name="musicdb.table.song">song</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>musicdb.song Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                </td>
+            	<td>name</td>
+            	<td>text</td>
+                <td><i>
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                </td>
+            	<td>record_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                  <a href="#musicdb.table.song">musicdb.song.id</a>
+                  
+                
+                </td>
+            	<td>variation_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				<br><br>This id points to another tuple
+of song. It allows to connect different versions of a song (Live, Covers, ...)
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#musicdb.table.person-alias-role-song">musicdb.person_alias__role__song</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#musicdb.table.song">musicdb.song</a></li>
+			</ul>
+		
+			<ul>
+				<li><a href="#musicdb.table.song-volume">musicdb.song__volume</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#musicdb.schema">Schema musicdb</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			
+			<a href="#musicdb.schema">musicdb</a>.<a name="musicdb.table.song-volume">song__volume</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>musicdb.song__volume Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                  
+                  <a href="#musicdb.table.song">musicdb.song.id</a>
+                  
+                
+                  
+                
+                </td>
+            	<td>song_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+					
+
+					
+				
+					
+
+					
+                       UNIQUE#1
+                    
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                  
+                
+                  
+                  <a href="#musicdb.table.volume">musicdb.volume.id</a>
+                  
+                
+                </td>
+            	<td>volume_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+					
+
+					
+                       UNIQUE#1
+                    
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>tracknumber</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+                       UNIQUE#1
+                    
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#musicdb.schema">Schema musicdb</a>
+    </p>
+	
+        <hr>
+		<h2>Table:
+			
+			<a href="#musicdb.schema">musicdb</a>.<a name="musicdb.table.volume">volume</a>
+		</h2>
+        
+
+
+        <table width="100%" cellspacing="0" cellpadding="3">
+                <caption>musicdb.volume Structure</caption>
+                <tr>
+                <th>F-Key</th>
+                <th>Name</th>
+                <th>Type</th>
+                <th>Description</th>
+                </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>id</td>
+            	<td>serial</td>
+                <td><i>
+				
+					PRIMARY KEY
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>number</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+                       UNIQUE#1
+                    
+				
+
+				NOT NULL
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr0">
+				<td>
+                
+                  
+                
+                </td>
+            	<td>name</td>
+            	<td>text</td>
+                <td><i>
+				
+					
+
+					
+                       UNIQUE
+                    
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+            <tr class="tr1">
+				<td>
+                
+                  
+                
+                  
+                  <a href="#musicdb.table.record">musicdb.record.id</a>
+                  
+                
+                </td>
+            	<td>record_id</td>
+            	<td>integer</td>
+                <td><i>
+				
+					
+
+					
+                       UNIQUE#1
+                    
+				
+					
+
+					
+				
+
+				
+				
+				</i>
+				
+				</td>
+			 </tr>
+            
+        </table>
+
+        <!-- Inherits -->
+		
+
+		
+		
+		
+
+        <!-- Constraint List -->
+		
+
+        <!-- Foreign Key Discovery -->
+		
+			<p>Tables referencing this one via Foreign Key Constraints:</p>
+		
+			<ul>
+				<li><a href="#musicdb.table.song-volume">musicdb.song__volume</a></li>
+			</ul>
+		
+		
+
+    <!-- Indexes -->
+    
+
+	<!-- View Definition -->
+	
+
+	<!-- List off permissions -->
+	
+
+	<p>
+		<a href="#index">Index</a> -
+		<a href="#musicdb.schema">Schema musicdb</a>
+    </p>
+	
+
+	<!-- We've gone through the table structure, now lets take a look at user functions -->
+	
+
+<!-- publicpublic -->
+
+		
+		<hr>
+		<h1>Schema public</h1>
+		
+			<p>standard public schema</p>
+		
+
+		
+		
+
+	<!-- We've gone through the table structure, now lets take a look at user functions -->
+	
+
+
+<p class="w3ref">Generated by <a href="http://www.rbt.ca/autodoc/">PostgreSQL Autodoc</a></p>
+<p class="w3ref"><a href="http://validator.w3.org/check/referer">W3C HTML 4.01 Strict</a></p>
+</body></html>
