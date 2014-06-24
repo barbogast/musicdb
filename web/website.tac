@@ -1,3 +1,5 @@
+# run with `twistd -ny website.tac`
+
 from twisted.application import service, internet
 from nevow import appserver, rend, inevow, loaders, flat, static, tags as T
 from nevow.url import URL
