@@ -32,7 +32,7 @@ CREATE TABLE musicdb.record
   musicbrainz_id   text,
   UNIQUE (musicbrainz_id),
   edition_id        int
-    REFERENCES musicdb.record(id),,
+    REFERENCES musicdb.record(id),
   PRIMARY KEY (id)
 );
 COMMENT ON COLUMN musicdb.record.edition_id IS 'This id points to another tuple
@@ -67,9 +67,9 @@ CREATE TABLE musicdb.song
   name              text NOT NULL,
   musicbrainz_id   text,
   record_id			int,
-  variation_id		int,
+  variation_id		int
+   REFERENCES musicdb.song(id),
   UNIQUE (musicbrainz_id),
-    REFERENCES musicdb.song(id),
   PRIMARY KEY (id)  
 );
 COMMENT ON COLUMN musicdb.song.variation_id IS 'This id points to another tuple

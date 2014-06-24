@@ -92,7 +92,7 @@ class OneOrAllPage(BasePage):
         try:
             name = inevow.IRequest(ctx).args['name'][0]
             return self.one(name)
-        except KeyError:
+        except (KeyError, AttributeError):
             return self.all()
         
 class Person(OneOrAllPage):
