@@ -1,3 +1,4 @@
+from zope.interface import implements
 from nevow import inevow, rend, flat, loaders, static, tags as T, entities as E
 from nevow.url import URL
 
@@ -55,12 +56,17 @@ class Toolset(object):
     
 
 class BasePage(rend.Page, Toolset):
+    implements(inevow.ICanHandleException)
     docFactory = loaders.xmlfile('index.tmpl', templateDir='templates')
     child_public = static.File('public')
     
     def __init__(self, model, debug=False):
         self.model = model
         self.debug = debug
+
+    def locateChild(self, ctx, segments):
+        ctx.remember(self, inevow.ICanHandleException)
+        return rend.Page.locateChild(self, ctx, segments)
     
     def render_topnav(self, ctx, data):
         seg = inevow.ICurrentSegments(ctx)[0]
