@@ -55,10 +55,15 @@ class Toolset(object):
         return outerLi
     
 
+class FileNoDir(static.File):
+    def directoryListing(self):
+        return None
+
+
 class BasePage(rend.Page, Toolset):
     implements(inevow.ICanHandleException)
     docFactory = loaders.xmlfile('index.tmpl', templateDir='templates')
-    child_public = static.File('public')
+    child_public = FileNoDir('public')
     
     def __init__(self, model, debug=False):
         self.model = model
