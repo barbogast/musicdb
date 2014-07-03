@@ -12,7 +12,7 @@ import simpleview_02 as simpleview
         
 
 def mkModel():
-    conn = psycopg2.connect(database='musicdb', user='musicdb')
+    conn = psycopg2.connect(database='musicdb')
     cur = conn.cursor()
     m = model.Model()
     m.setCursor(cur)
