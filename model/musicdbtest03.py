@@ -92,17 +92,17 @@ class A(object):
         
     def mapSongToVolume(self, songID, volumeID, tracknumber=None):
         args = {'song_id': songID, 'volume_id': volumeID, 'tracknumber': tracknumber}
-        self.cur.execute("""insert into song__volume 
+        self.cur.execute("""insert into musicdb.song__volume
         (song_id, volume_id, tracknumber) values (%(song_id)s, %(volume_id)s, %(tracknumber)s)""", args)
         
     def mapPersonAliasToRecordToRole(self, personAliasID, recordID, roleID):
         args = {'person_alias_id': personAliasID, 'record_id': recordID, 'role_id': roleID}
-        self.cur.execute("""insert into person_alias__record__role
+        self.cur.execute("""insert into musicdb.person_alias__record__role
         (person_alias_id, record_id, role_id) values (%(person_alias_id)s, %(record_id)s, %(role_id)s)""", args)
     
     def mapPersonAliasToRoleToSong(self, personAliasID, roleID, songID):
         args = {'person_alias_id': personAliasID, 'role_id': roleID, 'song_id': songID}
-        self.cur.execute("""insert into person_alias__role__song
+        self.cur.execute("""insert into musicdb.person_alias__role__song
         (person_alias_id, role_id, song_id) values (%(person_alias_id)s, %(role_id)s, %(song_id)s)""", args)
         
     def getRoleID(self, name):
