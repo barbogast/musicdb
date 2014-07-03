@@ -3,6 +3,9 @@ from nevow import inevow, rend, flat, loaders, static, tags as T, entities as E
 from nevow.url import URL
 
 
+URL_PATH = '/musicdb'
+
+
 class ListJoin(object):
     def __init__(self, s):
         self.s = s
@@ -77,7 +80,7 @@ class BasePage(rend.Page, Toolset):
         seg = inevow.ICurrentSegments(ctx)[0]
         seg = '/' if seg == '' else seg
         elements = [
-            ('/', 'Home'),
+            (URL_PATH+'/', 'Home'),
             ('person', 'Personen'),
             ('artist', 'Interpreten'),
             ('record', 'Alben'),
@@ -87,7 +90,7 @@ class BasePage(rend.Page, Toolset):
         ]
         
         if self.debug:
-            elements.append(('/public', '[Debug] public'))
+            elements.append((URL_PATH+'/public', '[Debug] public'))
         
         li = []
         for el in elements:
@@ -109,7 +112,7 @@ class OneOrAllPage(BasePage):
 class Person(OneOrAllPage):
     def all(self):
         dbResult = self.model.getPersonen()
-        li = self.render2TableJoin(dbResult, '/person')
+        li = self.render2TableJoin(dbResult, URL_PATH+'/person')
         return [
             #T.h2['Personen'],
             T.ul[li]
@@ -120,12 +123,12 @@ class Person(OneOrAllPage):
         dbResult = self.model.getPersonArtists(name)
         if dbResult:
             s.append(T.a(href='interpreten')[T.h3['Bands:']])
-            s.append(self.render3tableJoin(dbResult, '/artist', '/role'))
+            s.append(self.render3tableJoin(dbResult, URL_PATH+'/artist', URL_PATH+'/role'))
 
         dbResult = self.model.getPersonSongs(name)
         if dbResult:
             s.append(T.a(href='lieder')[T.h3['Lieder:']])
-            s.append(self.render3tableJoin(dbResult, '/song', '/role'))
+            s.append(self.render3tableJoin(dbResult, URL_PATH+'/song', URL_PATH+'/role'))
             
         return s
 
@@ -133,7 +136,7 @@ class Person(OneOrAllPage):
 class Artist(OneOrAllPage):
     def all(self):
         dbResult = self.model.getArtists()
-        li = self.render2TableJoin(dbResult, '/artist')
+        li = self.render2TableJoin(dbResult, URL_PATH+'/artist')
         return [
             T.ul[li]
         ]
@@ -143,12 +146,12 @@ class Artist(OneOrAllPage):
         dbResult = self.model.getArtistPersons(name)
         if dbResult:
             s.append(T.a(href='person')[T.h3['Personen:']])
-            s.append(self.render3tableJoin(dbResult, '/person', '/role'))
+            s.append(self.render3tableJoin(dbResult, URL_PATH+'/person', URL_PATH+'/role'))
                 
         dbResult = self.model.getArtistRecords(name)
         if dbResult:
             s.append(T.a(href='record')[T.h3['Alben:']])
-            s.append(self.render2TableJoin(dbResult, '/record'))
+            s.append(self.render2TableJoin(dbResult, URL_PATH+'/record'))
         
         return s
        
@@ -158,8 +161,8 @@ class Record(OneOrAllPage):
         s = [T.h2[name]]
         dbResult = self.model.getRecordArtists(name)
         if dbResult:
-            s.append(T.a(href='/artist')[T.h3['Interpreten:']])
-            s.append(self.render2TableJoin(dbResult, '/artist'))
+            s.append(T.a(href=URL_PATH+'/artist')[T.h3['Interpreten:']])
+            s.append(self.render2TableJoin(dbResult, URL_PATH+'/artist'))
                     
         songs = self.model.getRecordSongs(name)
         if songs:
@@ -173,25 +176,25 @@ class Record(OneOrAllPage):
                 liSongs = []
                 for song in volumes[v]:
                     songName = song[0]
-                    url = URL.fromString('/song').add('name', songName)
+                    url = URL.fromString(URL_PATH+'/song').add('name', songName)
                     number = '' if song[1] is None else [song[1], ': ']
                     liSongs.append(T.li[number, T.a(href=url)[songName]])
                 liVolumes.append(T.ul[liSongs])
             
-            s.append(T.a(href='/song')[T.h3['Lieder:']])
+            s.append(T.a(href=URL_PATH+'/song')[T.h3['Lieder:']])
             s.append(liVolumes)
             
         
         dbResult = self.model.getRecordPersonRole(name)
         if dbResult:
-            s.append(T.a(href='/person')[T.h3['Personen:']])
-            s.append(self.render3tableJoin(dbResult, '/person', '/role'))
+            s.append(T.a(href=URL_PATH+'/person')[T.h3['Personen:']])
+            s.append(self.render3tableJoin(dbResult, URL_PATH+'/person', URL_PATH+'/role'))
                 
         return s
     
     def all(self):
         dbResult = self.model.getArtistsRecords()
-        liRecords = self.render3tableJoin(dbResult, '/artist', '/record')
+        liRecords = self.render3tableJoin(dbResult, URL_PATH+'/artist', URL_PATH+'/record')
                 
         return T.ul[liRecords]
     
@@ -200,13 +203,13 @@ class Song(OneOrAllPage):
         s = [T.h2[name]]
         dbResult = self.model.getSongArtists(name)
         if dbResult:
-            s.append(T.a(href='/artist')[T.h3['Interpreten:']])
-            s.append(self.render3tableJoin(dbResult, '/artist', '/record'))
+            s.append(T.a(href=URL_PATH+'/artist')[T.h3['Interpreten:']])
+            s.append(self.render3tableJoin(dbResult, URL_PATH+'/artist', URL_PATH+'/record'))
         
         dbResult = self.model.getSongPersons(name)
         if dbResult:
-            s.append(T.a(href='person')[T.h3['Personen:']])
-            s.append(self.render3tableJoin(dbResult, '/person', '/role')    )
+            s.append(T.a(href=URL_PATH+'/person')[T.h3['Personen:']])
+            s.append(self.render3tableJoin(dbResult, URL_PATH+'/person', URL_PATH+'/role')    )
         
         return s
     
@@ -214,7 +217,7 @@ class Song(OneOrAllPage):
         dbResult = self.model.getSongs()
         li = []
         for r in dbResult:
-            url = URL.fromString('/song').add('name', r)
+            url = URL.fromString(URL_PATH+'/song').add('name', r)
             li.append(T.li[T.a(href=url)[r]])
             
         return T.ul[li]
@@ -235,11 +238,11 @@ class Role(OneOrAllPage):
             for artist in sorted(roleDict[role].keys()):
                 persons = []
                 for person in roleDict[role][artist]:
-                    url = URL.fromString('/person').add('name', person)
+                    url = URL.fromString(URL_PATH+'/person').add('name', person)
                     persons.append(T.a(href=url)[person])
-                url = URL.fromString('/artist').add('name', artist)
+                url = URL.fromString(URL_PATH+'/artist').add('name', artist)
                 artistLi.append(T.li[T.a(href=url)[artist], ': ', ListJoin(', ').join(persons)])
-            url = URL.fromString('/role').add('name', role)
+            url = URL.fromString(URL_PATH+'/role').add('name', role)
             roleArtist.append( [T.a(href=url)[role], T.ul[ artistLi ]] )
        
             
@@ -255,11 +258,11 @@ class Role(OneOrAllPage):
             for song in sorted(roleDict[role].keys()):
                 persons = []
                 for person in roleDict[role][song]:
-                    url = URL.fromString('/person').add('name', person)
+                    url = URL.fromString(URL_PATH+'/person').add('name', person)
                     persons.append(T.a(href=url)[person])
-                url = URL.fromString('/song').add('name', song)
+                url = URL.fromString(URL_PATH+'/song').add('name', song)
                 songLi.append(T.li[T.a(href=url)[song], ': ', ListJoin(', ').join(persons)])
-            url = URL.fromString('/role').add('name', role)
+            url = URL.fromString(URL_PATH+'/role').add('name', role)
             roleSong.append( [T.a(href=url)[role], T.ul[ songLi ]] )
         
         return [
@@ -282,9 +285,9 @@ class SongTable(BasePage):
             T.th['Lied'], 
         ]]
         for song, tracknumber, diskNumber, disk, record, artist in td:
-            song = E.nbsp if song is None else T.a(href=URL.fromString('/song').add('name', song))[song]
-            record = E.nbsp if record is None else T.a(href=URL.fromString('/record').add('name', record))[record]
-            artist = E.nbsp if artist is None else T.a(href=URL.fromString('/artist').add('name', artist))[artist]
+            song = E.nbsp if song is None else T.a(href=URL.fromString(URL_PATH+'/song').add('name', song))[song]
+            record = E.nbsp if record is None else T.a(href=URL.fromString(URL_PATH+'/record').add('name', record))[record]
+            artist = E.nbsp if artist is None else T.a(href=URL.fromString(URL_PATH+'/artist').add('name', artist))[artist]
             tracknumber = E.nbsp if tracknumber is None else tracknumber
             disk = E.nbsp if disk is None else disk
             diskNumber = E.nbsp if diskNumber is None else diskNumber
@@ -352,7 +355,7 @@ class SimpleView(BasePage):
     
     def renderTitle(self):
         s = ListJoin(' | ').join([
-            T.a(href='/')['Home'],
+            T.a(href=URL_PATH+'/')['Home'],
             T.a(href='personen')['Personen'],
             T.a(href='interpreten')['Interpreten'],
             T.a(href='alben')['Alben'],
@@ -367,7 +370,7 @@ class SimpleView(BasePage):
     
     def child_personen(self, ctx):
         dbResult = self.model.getPersonen()
-        li = self.render2TableJoin(dbResult, '/person')
+        li = self.render2TableJoin(dbResult, URL_PATH+'/person')
         s = [
             self.renderTitle(),
             self.makeBreadcrump(),
@@ -379,10 +382,10 @@ class SimpleView(BasePage):
     def child_person(self, ctx):
         name = inevow.IRequest(ctx).args['name'][0]
         dbResult = self.model.getPersonArtists(name)
-        liArtists = self.render3tableJoin(dbResult, '/interpret', '/rolle')
+        liArtists = self.render3tableJoin(dbResult, URL_PATH+'/interpret', URL_PATH+'/rolle')
 
         dbResult = self.model.getPersonSongs(name)
-        liSongs = self.render3tableJoin(dbResult, '/lied', '/rolle')
+        liSongs = self.render3tableJoin(dbResult, URL_PATH+'/lied', URL_PATH+'/rolle')
             
         s = [
             self.renderTitle(),
@@ -397,7 +400,7 @@ class SimpleView(BasePage):
     
     def child_interpreten(self, ctx):          
         dbResult = self.model.getArtists()
-        li = self.render2TableJoin(dbResult, '/interpret')
+        li = self.render2TableJoin(dbResult, URL_PATH+'/interpret')
         s = [
             self.renderTitle(),
             self.makeBreadcrump(),
@@ -408,10 +411,10 @@ class SimpleView(BasePage):
     def child_interpret(self, ctx):
         name = inevow.IRequest(ctx).args['name'][0]
         dbResult = self.model.getArtistPersons(name)
-        liPersons = self.render3tableJoin(dbResult, '/person', '/rolle')
+        liPersons = self.render3tableJoin(dbResult, URL_PATH+'/person', URL_PATH+'/rolle')
             
         dbResult = self.model.getArtistRecords(name)
-        liRecords = self.render2TableJoin(dbResult, '/album')
+        liRecords = self.render2TableJoin(dbResult, URL_PATH+'/album')
         
         s = [
             self.renderTitle(),
@@ -428,7 +431,7 @@ class SimpleView(BasePage):
         name = inevow.IRequest(ctx).args['name'][0]
         
         dbResult = self.model.getRecordArtist(name)
-        liArtists = self.render2TableJoin(dbResult, '/interpret')
+        liArtists = self.render2TableJoin(dbResult, URL_PATH+'/interpret')
         
         songs = self.model.getRecordSongs(name)
         volumes = {}
@@ -441,7 +444,7 @@ class SimpleView(BasePage):
             liSongs = []
             for s in volumes[v]:
                 songName = s[0]
-                url = URL.fromString('/lied').add('name', songName)
+                url = URL.fromString(URL_PATH+'/lied').add('name', songName)
                 number = '' if s[1] is None else [s[1], ': ']
                 liSongs.append(T.li[number, T.a(href=url)[songName]])
             liVolumes.append(T.ul[liSongs])
@@ -461,10 +464,10 @@ class SimpleView(BasePage):
         name = inevow.IRequest(ctx).args['name'][0]
 
         dbResult = self.model.getSongArtists(name)
-        liArtists = self.render3tableJoin(dbResult, '/interpret', '/album')
+        liArtists = self.render3tableJoin(dbResult, URL_PATH+'/interpret', URL_PATH+'/album')
         
         dbResult = self.model.getSongPersons(name)
-        liPersons = self.render3tableJoin(dbResult, '/person', '/rolle')    
+        liPersons = self.render3tableJoin(dbResult, URL_PATH+'/person', URL_PATH+'/rolle')
         
         s = [
             self.renderTitle(),
@@ -479,7 +482,7 @@ class SimpleView(BasePage):
     
     def child_alben(self, ctx):
         dbResult = self.model.getRecords()
-        liRecords = self.render3tableJoin(dbResult, '/album', '/interpret')
+        liRecords = self.render3tableJoin(dbResult, URL_PATH+'/album', URL_PATH+'/interpret')
         
         s = [
             self.renderTitle(),
@@ -493,7 +496,7 @@ class SimpleView(BasePage):
         dbResult = self.model.getSongs()
         li = []
         for r in dbResult:
-            url = URL.fromString('/lied').add('name', r)
+            url = URL.fromString(URL_PATH+'/lied').add('name', r)
             li.append(T.li[T.a(href=url)[r]])
             
         s = [
@@ -507,10 +510,10 @@ class SimpleView(BasePage):
     def child_rolle(self, ctx):
         name = inevow.IRequest(ctx).args['name'][0]
         dbResult = self.model.getRoleArtists(name)
-        liArtists = self.render3tableJoin(dbResult, '/person', '/interpret')
+        liArtists = self.render3tableJoin(dbResult, URL_PATH+'/person', URL_PATH+'/interpret')
         
         dbResult = self.model.getRoleSongs(name)
-        liSongs = self.render3tableJoin(dbResult, '/person', '/song')
+        liSongs = self.render3tableJoin(dbResult, URL_PATH+'/person', URL_PATH+'/song')
         
         s = [
             self.renderTitle(),
@@ -534,9 +537,9 @@ class SimpleView(BasePage):
             T.th['Lied'], 
         ]]
         for song, tracknumber, diskNumber, disk, record, artist in td:
-            song = E.nbsp if song is None else T.a(href=URL.fromString('/lied').add('name', song))[song]
-            record = E.nbsp if record is None else T.a(href=URL.fromString('/album').add('name', record))[record]
-            artist = E.nbsp if artist is None else T.a(href=URL.fromString('/interpret').add('name', artist))[artist]
+            song = E.nbsp if song is None else T.a(href=URL.fromString(URL_PATH+'/lied').add('name', song))[song]
+            record = E.nbsp if record is None else T.a(href=URL.fromString(URL_PATH+'/album').add('name', record))[record]
+            artist = E.nbsp if artist is None else T.a(href=URL.fromString(URL_PATH+'/interpret').add('name', artist))[artist]
             tracknumber = E.nbsp if tracknumber is None else tracknumber
             disk = E.nbsp if disk is None else disk
             diskNumber = E.nbsp if diskNumber is None else diskNumber
