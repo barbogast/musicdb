@@ -112,7 +112,7 @@ class A(object):
 import unittest as ut
 class TestA(ut.TestCase):
     def setUp(self):
-        self.conn = psycopg2.connect(database='musicdb', user='musicdb')
+        self.conn = psycopg2.connect(database='musicdb')
 
     def test_getPersonID(self):
         name = 'testperson'
@@ -167,7 +167,7 @@ if __name__ == '__main__':
     import pprint
     
     def makeAwithConnAndCur():
-        conn = psycopg2.connect(database='musicdb', user='musicdb')
+        conn = psycopg2.connect(database='musicdb')
         conn.set_isolation_level(psycopg2.extensions.ISOLATION_LEVEL_AUTOCOMMIT)
         cur = conn.cursor()
         a = A()
