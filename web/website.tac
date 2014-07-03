@@ -20,5 +20,6 @@ def mkModel():
 model = mkModel()
 
 application = service.Application('musicdb site')
-webservice = internet.TCPServer(8081, appserver.NevowSite(simpleview.IndexPage(model, debug=True)))
+app = appserver.NevowSite(simpleview.IndexPage(model, debug=True))
+webservice = internet.TCPServer(8081, app, interface='localhost')
 webservice.setServiceParent(application)
